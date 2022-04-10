@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title> 현재 시간 </title>
+        <style>
+            body {
+                text-align: center;
+                background-color: black;
+            }
+
+            .date {
+                font-size: large;
+                color: white;
+            }
+
+            .time {
+                font-size: xx-large;
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="date"> </div>
+        <div class="time"> </div>
+        <script>
+            setInterval(clock, 1000);
+
+            function clock() {
+                var date = new Date();
+                var hour = addzero(date.getHours());
+                var min = addzero(date.getMinutes());
+                var sec = addzero(date.getSeconds());
+                var year = date.getFullYear();
+                var month = date.getMonth() + 1; //monthIndex 반환>1더해주기
+                var date = date.getDate();
+
+                document.getElementsByClassName("time")[0].innerHTML = hour + " : " + min + " : " + sec;
+                document.getElementsByClassName("date")[0].innerHTML = year + "년 " + month + "월 " + date + "일";
+            }
+            function addzero(time) {
+                if (time < 10) {
+                    return "0" + time;
+                }
+                else
+                    return time;
+            }
+        </script>
+    </body>
+</html>
